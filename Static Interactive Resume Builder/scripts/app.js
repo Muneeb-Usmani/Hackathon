@@ -1,5 +1,37 @@
-var skillsSection = document.querySelector(".skills");
-var toggleButton = document.getElementById("toggle-skills");
-toggleButton.addEventListener("click", function () {
-    skillsSection.classList.toggle("hidden");
+var resumeForm = document.getElementById('resume-form');
+var displayName = document.getElementById('display-name');
+var displayEmail = document.getElementById('display-email');
+var displayPhone = document.getElementById('display-phone');
+var displayDegree = document.getElementById('display-degree');
+var displayYear = document.getElementById('display-year');
+var displayPosition = document.getElementById('display-position');
+var displayDuration = document.getElementById('display-duration');
+var displaySkills = document.getElementById('display-skills');
+var resumeDisplay = document.getElementById('resume-display');
+resumeDisplay.style.display = 'none';
+resumeForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var nameInput = document.getElementById('name').value;
+    var emailInput = document.getElementById('email').value;
+    var phoneInput = document.getElementById('phone').value;
+    var degreeInput = document.getElementById('degree').value;
+    var yearInput = document.getElementById('year').value;
+    var positionInput = document.getElementById('position').value;
+    var durationInput = document.getElementById('duration').value;
+    var skillsInput = document.getElementById('skills').value;
+    displayName.textContent = nameInput;
+    displayEmail.textContent = emailInput;
+    displayPhone.textContent = phoneInput;
+    displayDegree.textContent = degreeInput;
+    displayYear.textContent = yearInput;
+    displayPosition.textContent = positionInput;
+    displayDuration.textContent = durationInput;
+    var skillsArray = skillsInput.split(',').map(function (skill) { return skill.trim(); });
+    displaySkills.innerHTML = '';
+    skillsArray.forEach(function (skill) {
+        var li = document.createElement('li');
+        li.textContent = skill;
+        displaySkills.appendChild(li);
+    });
+    resumeDisplay.style.display = 'block';
 });
