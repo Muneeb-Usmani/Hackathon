@@ -30,14 +30,10 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-section h2 {
+h2 {
   font-size: 24px;
-  color: #333;
+  color: #3498db;
   margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
 }
 
 h3 {
@@ -62,7 +58,6 @@ input[type="number"] {
   border-radius: 4px;
 }
 
-
 button {
   margin-top: 20px;
   padding: 10px 15px;
@@ -77,78 +72,53 @@ button:hover {
   background-color: #2980b9; 
 }
 
-
-.resume h2 {
-  font-size: 22px;
-  color: #3498db; 
-  margin-bottom: 10px;
+#edit-btn, #save-btn {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-.resume h3 {
-  font-size: 20px;
-  color: #3498db; 
-  margin-bottom: 10px;
+#edit-btn {
+  background-color: #007bff;
+}
+
+#save-btn {
+  background-color: #28a745;
+}
+
+#edit-btn:hover, #save-btn:hover {
+  opacity: 0.9;
 }
 
 .resume p {
   font-size: 18px;
   color: #555;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
-#toggle-skills {
-  padding: 0.7rem 1.5rem;
-  background-color: #007bff; 
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 1rem;
+.editable,
+.resume p[contenteditable="true"] {
+  border: 1px solid #3498db;
+  padding: 5px;
+  background-color: #f9f9f9;
+  outline: none;
 }
 
-#toggle-skills:hover {
-  background-color: #0069d9; 
-}
-
-
-section {
-  margin-bottom: 20px;
-}
-
-.skills {
-  margin-top: 20px;
-}
-
-.skills h2 {
-  font-size: 22px;
-  color: #3498db; 
-  margin-bottom: 15px;
-}
-
-.skills ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0; 
-  display: flex; 
-  flex-wrap: wrap;
-  gap: 10px; 
-}
-
-.skills ul li {
-  background-color: #ecf0f1;
-  padding: 10px;
-  border-radius: 5px;
+.skills p {
   font-size: 18px;
-  color: #333; 
-  text-align: center; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  flex: 1 1 auto; 
-  min-width: 150px; 
+  color: #333;
+  padding: 10px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
-.skills ul li:hover {
+.skills p:hover {
   background-color: #dbe1e6;
-  color: #3498db; 
-  transition: background-color 0.3s, color 0.3s; 
+  color: #3498db;
+  transition: background-color 0.3s, color 0.3s;
   border-radius: 15px;
 }
