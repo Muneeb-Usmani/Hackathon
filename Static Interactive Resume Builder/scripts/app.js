@@ -8,6 +8,11 @@ var displayPosition = document.getElementById('display-position');
 var displayDuration = document.getElementById('display-duration');
 var displaySkills = document.getElementById('display-skills');
 var resumeDisplay = document.getElementById('resume-display');
+var resumeUrlSpan = document.getElementById('resume-url');
+var resumeLinkSection = document.getElementById('resume-link-section');
+var copyLinkBtn = document.getElementById('copy-link');
+var shareBtn = document.getElementById('share-btn');
+var downloadBtn = document.getElementById('download-btn');
 resumeDisplay.style.display = 'none';
 resumeForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -35,6 +40,9 @@ resumeForm.addEventListener('submit', function (event) {
         displaySkills.appendChild(p);
     });
     resumeDisplay.style.display = 'block';
+    resumeLinkSection.style.display = 'block';
+    var generatedUrl = "".concat(window.location.origin, "/resume/").concat(encodeURIComponent(nameInput));
+    resumeUrlSpan.textContent = generatedUrl;
 });
 var editButton = document.getElementById('edit-btn');
 var saveButton = document.getElementById('save-btn');
@@ -71,3 +79,30 @@ function saveChanges() {
 }
 editButton.addEventListener('click', enableEditing);
 saveButton.addEventListener('click', saveChanges);
+copyLinkBtn.addEventListener('click', function () {
+    var url = resumeUrlSpan.textContent;
+    if (url) {
+        navigator.clipboard.writeText(url)
+            .then(function () { return alert('Link copied to clipboard!'); })
+            .catch(function (err) { return console.error('Error copying text: ', err); });
+    }
+    else {
+        alert('URL not found.');
+    }
+});
+shareBtn.addEventListener('click', function () {
+    var url = resumeUrlSpan.textContent;
+    if (navigator.share && url) {
+        navigator.share({
+            title: 'My Resume',
+            text: 'Check out my resume!',
+            url: url,
+        }).catch(function (error) { return console.error('Error sharing:', error); });
+    }
+    else {
+        alert('Web Share API is not supported in this browser. Copy the link instead.');
+    }
+});
+downloadBtn.addEventListener('click', function () {
+    window.print();
+});
