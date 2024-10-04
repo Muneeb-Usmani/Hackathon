@@ -59,8 +59,8 @@ resumeForm.addEventListener('submit', (event) => {
   resumeDisplay.style.display = 'block';
   resumeLinkSection.style.display = 'block';
 
-  const generatedUrl = `${window.location.origin}/resume/${encodeURIComponent(nameInput)}`;
-  resumeUrlSpan.textContent = generatedUrl;
+  const currentUrl = window.location.href;
+resumeUrlSpan.textContent = currentUrl;
 });
 
 const editButton = document.getElementById('edit-btn') as HTMLButtonElement;

@@ -41,8 +41,8 @@ resumeForm.addEventListener('submit', function (event) {
     });
     resumeDisplay.style.display = 'block';
     resumeLinkSection.style.display = 'block';
-    var generatedUrl = "".concat(window.location.origin, "/resume/").concat(encodeURIComponent(nameInput));
-    resumeUrlSpan.textContent = generatedUrl;
+    var currentUrl = window.location.href;
+    resumeUrlSpan.textContent = currentUrl;
 });
 var editButton = document.getElementById('edit-btn');
 var saveButton = document.getElementById('save-btn');
